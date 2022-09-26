@@ -17,7 +17,7 @@ export function Earth(props) {
   document.onmousemove = trackMouseMove;
 
   function trackMouseMove(event) {
-    var positionX = event.pageX;
+    var positionX = event.screenX;
     var positionY = event.pageY;
     setFollowX(positionX);
     setFollowY(positionY);
@@ -25,9 +25,10 @@ export function Earth(props) {
 
   useFrame((state, delta) => 
     {ref.current.rotation.y += 
-      followX === 0 ? -0.001 : (followX-(width/2))/100000;
+      followX === 0 ? -0.001 : (followX - (width/2))/70000;
      ref.current.rotation.z +=   
-     followY === 0 ? 0 : (followY-(height/2))/100000;})  
+       followY === 0 ? 0 : ((height/2) - followY)/250000;
+    })  
     
     return <>
     <ambientLight intensity={5}/>

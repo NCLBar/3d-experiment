@@ -5,17 +5,16 @@ import { Earth } from './components';
 import { CloudOverlay } from './components/cloudOverlay';
 import { StarsBackdrop } from './components/stars';
 import { PerspectiveCamera } from '@react-three/drei';
-
+import DrawerAppBar from './components/Menu';
 
 function App() {
   return (
     <>
-      <div >Hello</div>
+      <DrawerAppBar/>
       <Canvas>
         <Suspense fallback={null}>
           <PerspectiveCamera makeDefault position={[6,3.5,0]} />
           <StarsBackdrop/>
-          <CloudOverlay/>
           <Earth/>
         </Suspense>
       </Canvas>
